@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Показать IP-адрес</title>
+<body>
+    <p id="ip"></p>
     <script>
-        // Функция для получения IP-адреса пользователя
-        function getIP() {
-            fetch('https://api64.ipify.org?format=json')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('ip-address').textContent = data.ip;
-                })
-                .catch(error => {
-                    console.error('Произошла ошибка при определении IP-адреса: ', error);
-                });
-        }
+        fetch('https://api64.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ip').textContent = data.ip;
+            });
     </script>
-</head>
-<body onload="getIP()">
-    <p id="ip-address">Определение IP-адреса ...</p>
 </body>
+</html>
