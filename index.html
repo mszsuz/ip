@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Показать IP-адрес</title>
+    <script>
+        // Функция для получения IP-адреса пользователя
+        function getIP() {
+            fetch('https://api64.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ip-address').textContent = data.ip;
+                })
+                .catch(error => {
+                    console.error('Произошла ошибка при получении IP-адреса: ', error);
+                });
+        }
+    </script>
+</head>
+<body onload="getIP()">
+    <h1>Ваш IP-адрес:</h1>
+    <p id="ip-address">Загрузка...</p>
+</body>
